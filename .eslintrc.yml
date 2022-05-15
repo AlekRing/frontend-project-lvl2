@@ -1,0 +1,17 @@
+  extends:
+    - 'airbnb-base'
+  rules:
+    no-console: 0
+    semi: 
+      - warn
+      - always
+    quotes:
+      - warn
+      - single
+    indent: 1
+    no-plusplus: 0
+    import/extensions:
+      - error
+      - ignorePackages
+      - js: always
+  reportUnusedDisableDirectives: true
