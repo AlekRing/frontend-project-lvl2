@@ -1,57 +1,51 @@
 import fs from 'fs';
 
-const sortData = (data) => {
-  const dataKeys = Object.keys(data).sort((a, b) => a[0].localeCompare(b[0]));
-  const sortedData = dataKeys.reduce((acc, curr) => { acc[curr] = data[curr]; return acc; }, {});
+const sortByAlphabeticalOrder = (a, b) => a[0].localeCompare(b[0]);
 
-  return sortedData;
-};
+const genDifference = (data1, data2) => {
+  const sortedKeys1 = Object.keys(data1).sort(sortByAlphabeticalOrder);
+  const sortedKeys2 = Object.keys(data2).sort(sortByAlphabeticalOrder);
 
-const concatData = (data1, data2) => {
-  const dataKeys1 = Object.keys(data1);
-  const dataKeys2 = Object.keys(data2);
+  const generalKeys = [...new Set([...sortedKeys1, ...sortedKeys2])];
 
-  const { larger, smaller } = dataKeys1.length > dataKeys2.length
+  const { larger, smaller } = sortedKeys1.length > sortedKeys2.length
     ? { larger: data1, smaller: data2 }
     : { larger: data2, smaller: data1 };
 
-  const generalKeysSet = new Set([...dataKeys1, ...dataKeys2]);
-  const generalKeys = Array.from(generalKeysSet);
+  const difference = generalKeys.reduce((acc, key) => {
+    const smallerValue = smaller[key];
+    const largerValue = larger[key];
 
-  const concatenated = generalKeys.reduce((acc, key) => {
-    const smallerDataVal = smaller[key];
-    const largerDataVal = larger[key];
-
-    const isSmallerVal = smallerDataVal !== undefined;
-    const isLargerVal = largerDataVal !== undefined;
+    const isSmallerVal = smallerValue !== undefined;
+    const isLargerVal = largerValue !== undefined;
 
     if (isLargerVal && !isSmallerVal) {
-      acc[`- ${key}`] = largerDataVal;
+      acc[`- ${key}`] = largerValue;
     } else if (isSmallerVal && !isLargerVal) {
-      acc[`+ ${key}`] = smallerDataVal;
-    } else if (smallerDataVal === largerDataVal) {
-      acc[key] = largerDataVal;
-    } else if (smallerDataVal !== largerDataVal) {
-      acc[`- ${key}`] = largerDataVal;
-      acc[`+ ${key}`] = smallerDataVal;
+      acc[`+ ${key}`] = smallerValue;
+    } else if (smallerValue === largerValue) {
+      acc[key] = largerValue;
+    } else if (smallerValue !== largerValue) {
+      acc[`- ${key}`] = largerValue;
+      acc[`+ ${key}`] = smallerValue;
     }
     return acc;
   }, {});
 
-  return concatenated;
+  return difference;
 };
 
-const genDiff = (path1, path2) => {
+const main = (path1, path2) => {
   const rowFile1Data = fs.readFileSync(path1, 'utf-8');
   const rowFile2Data = fs.readFileSync(path2, 'utf-8');
 
   const data1 = JSON.parse(rowFile1Data);
   const data2 = JSON.parse(rowFile2Data);
 
-  const concatenated = concatData(sortData(data1), sortData(data2));
+  const difference = genDifference(data1, data2);
 
-  return JSON.stringify(concatenated);
-  // return concatenated;
+  return JSON.stringify(difference);
+  // return difference;
 };
 
-export default genDiff;
+export default main;

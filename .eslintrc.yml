@@ -1,5 +1,11 @@
+  plugins:
+    # https://github.com/jest-community/eslint-plugin-jest
+    - jest
+
   extends:
     - 'airbnb-base'
+    - 'plugin:jest/recommended'
+
   rules:
     no-console: 0
     semi: 
@@ -14,4 +20,5 @@
       - error
       - ignorePackages
       - js: always
+
   reportUnusedDisableDirectives: true

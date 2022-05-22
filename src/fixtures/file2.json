@@ -1,9 +1,5 @@
 {
     "timeout": 20,
     "verbose": true,
-    "host": "hexlet.io",
-    "test": "done",
-    "computer": true,
-    "server": false,
-    "PORT": 3000
+    "host": "hexlet.io"
 }
