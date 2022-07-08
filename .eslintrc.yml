@@ -1,24 +1,32 @@
-  plugins:
-    # https://github.com/jest-community/eslint-plugin-jest
-    - jest
+plugins:
+  # https://github.com/jest-community/eslint-plugin-jest
+  - jest
 
-  extends:
-    - 'airbnb-base'
-    - 'plugin:jest/recommended'
+extends:
+  - airbnb-base
+  - 'plugin:jest/recommended'
 
-  rules:
-    no-console: 0
-    semi: 
-      - warn
-      - always
-    quotes:
-      - warn
-      - single
-    indent: 1
-    no-plusplus: 0
-    import/extensions:
-      - error
-      - ignorePackages
-      - js: always
+parserOptions:
+  ecmaVersion: 11
+  sourceType: module
 
-  reportUnusedDisableDirectives: true
+reportUnusedDisableDirectives: true
+
+rules:
+  no-console: 0
+  semi: 
+    - warn
+    - always
+  quotes:
+    - warn
+    - single
+  indent: 1
+  no-plusplus: 0
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
+  import/extensions:
+    - error
+    - ignorePackages
+    - js: always
+
+
+  
