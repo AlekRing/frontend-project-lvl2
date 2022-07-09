@@ -6,8 +6,8 @@
 Hello! This is a project that allows you to create pretty-printed differencies between files.
 
 Here you can see demos:
-### Gendiff stylish: [stylish](https://asciinema.org/a/7ELdWTJivOXkS7dmuTA0cp8a6)
-### Gendiff plain: [plain](https://asciinema.org/a/mR7klCMIus1EVFvXtDu3f4BMX)
-### Gendiff json: [json](https://asciinema.org/a/JXfiFibqhFgk1hpii7U8wUnoh)
+### Gendiff stylish: [![stylish](https://asciinema.org/a/7ELdWTJivOXkS7dmuTA0cp8a6.png)](https://asciinema.org/a/7ELdWTJivOXkS7dmuTA0cp8a6)
+### Gendiff plain: [![plain](https://asciinema.org/a/mR7klCMIus1EVFvXtDu3f4BMX.png)](https://asciinema.org/a/mR7klCMIus1EVFvXtDu3f4BMX)
+### Gendiff json: [![json](https://asciinema.org/a/JXfiFibqhFgk1hpii7U8wUnoh.png)](https://asciinema.org/a/JXfiFibqhFgk1hpii7U8wUnoh)
 
-### Tests: [Tests](https://asciinema.org/a/Bt6yZcYpuLOhKnvR1PyWfSRdM)
+### Tests: [![tests](https://asciinema.org/a/Bt6yZcYpuLOhKnvR1PyWfSRdM.png)](https://asciinema.org/a/Bt6yZcYpuLOhKnvR1PyWfSRdM)
