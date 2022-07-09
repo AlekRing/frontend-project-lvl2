@@ -2,4 +2,4 @@ export const gendiffOutput = '{"- follow":false,"host":"hexlet.io","- proxy":"12
 export const jsonFile1 = 'file1.json';
 export const jsonFile2 = 'file2.json';
 export const yamlFile1 = 'file1.yml';
-export const yamlFile2 = 'file2.yml';
+export const yamlFile2 = 'file2.yaml';

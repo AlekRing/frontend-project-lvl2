@@ -28,8 +28,6 @@ const genDiffTree = (data1, data2) => {
     return { key, type: 'unchanged', value: val2 };
   });
 
-  // console.log(difference);
-
   return difference;
 };
 
