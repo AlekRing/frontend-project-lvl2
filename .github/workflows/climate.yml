@@ -1,0 +1,21 @@
+name: test-and-coverage
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: make install
+      - name: test
+        run: make test
+      - name: lint
+        run: make lint
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE }}
+        with:
+          coverageCommand: make test-coverage
