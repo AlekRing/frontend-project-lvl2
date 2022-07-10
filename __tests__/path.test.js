@@ -7,13 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 test('path check', () => {
-  const fileName = jsonFile1;
+  const finalPath = path.join(__dirname, '__fixtures__', jsonFile1);
 
-  const isAbsolute = path.isAbsolute(fileName);
-  const lastIndex = fileName.split('/').length - 1;
-  const filePath = isAbsolute ? fileName.split('/')[lastIndex] : fileName;
+  console.log(__dirname, finalPath);
 
-  const final1 = path.join(__dirname, '../src/fixtures', filePath);
-
-  expect(final1).toBe('/mnt/d/Work/hexletUserHelp/frontend-project-lvl2/src/fixtures/file1.json');
+  expect(finalPath).toBe('/mnt/d/Work/hexletUserHelp/frontend-project-lvl2/__fixtures__/file1.json');
 });
