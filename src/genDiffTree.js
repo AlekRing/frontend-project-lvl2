@@ -8,13 +8,10 @@ const genDiffTree = (data1, data2) => {
     const val1 = data1[key];
     const val2 = data2[key];
 
-    const isVal1 = val1 !== undefined;
-    const isVal2 = val2 !== undefined;
-
-    if (!isVal2) {
+    if (!_.has(data2, key)) {
       return { key, type: 'deleted', value: val1 };
     }
-    if (!isVal1) {
+    if (!_.has(data1, key)) {
       return { key, type: 'added', value: val2 };
     }
     if (_.isPlainObject(val1) && _.isPlainObject(val2)) {
@@ -22,7 +19,7 @@ const genDiffTree = (data1, data2) => {
     }
     if (!_.isEqual(val1, val2)) {
       return {
-        key, type: 'changed', value1: val1, value2: val2,
+        key, type: 'changed', oldValue: val1, newValue: val2,
       };
     }
     return { key, type: 'unchanged', value: val2 };

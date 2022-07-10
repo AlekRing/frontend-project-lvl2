@@ -5,6 +5,16 @@
 
 Hello! This is a project that allows you to create pretty-printed differencies between files.
 
+### Setup:
+    * clone project
+    * make install
+    * npm link
+
+## System requirements
+* NodeJS >= 12 <= 18
+* NPM >= 6.x
+* Make
+
 Here you can see demos:
 ### Gendiff stylish: [![stylish](https://asciinema.org/a/7ELdWTJivOXkS7dmuTA0cp8a6.png)](https://asciinema.org/a/7ELdWTJivOXkS7dmuTA0cp8a6)
 ### Gendiff plain: [![plain](https://asciinema.org/a/mR7klCMIus1EVFvXtDu3f4BMX.png)](https://asciinema.org/a/mR7klCMIus1EVFvXtDu3f4BMX)

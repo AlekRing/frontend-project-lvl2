@@ -9,11 +9,3 @@ Property 'group1.baz' was updated. From undefined to undefined
 Property 'group1.nest' was updated. From undefined to undefined
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]
-Property 'group4.default' was updated. From undefined to undefined
-Property 'group4.foo' was updated. From undefined to undefined
-Property 'group4.isNested' was updated. From undefined to undefined
-Property 'group4.key' was added with value: false
-Property 'group4.nest.bar' was updated. From undefined to undefined
-Property 'group4.nest.isNested' was removed
-Property 'group4.someKey' was added with value: true
-Property 'group4.type' was updated. From undefined to undefined
