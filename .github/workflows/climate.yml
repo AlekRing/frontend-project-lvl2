@@ -8,13 +8,14 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - run: make install
-      - name: test
-        run: make test
-      - name: lint
-        run: make lint
+      - uses: actions/checkout@v3
+      - name: install, build, test
+      - run: |
+          make install
+          make test
+          make lint
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
+        uses: paambaati/codeclimate-action@v3
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE }}
         with:
