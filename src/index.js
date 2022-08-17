@@ -6,7 +6,7 @@ import parseRowData from './parsers.js';
 
 const getPath = (filename) => path.resolve(process.cwd(), filename);
 
-const getExtension = (filePath) => path.extname(filePath)?.split('.')[0];
+const getExtension = (filePath) => path.extname(filePath)?.split('.').at(-1);
 
 const genDiff = (path1, path2, format = 'stylish') => {
   const rowFile1Data = readFileSync(getPath(path1), 'utf-8');
