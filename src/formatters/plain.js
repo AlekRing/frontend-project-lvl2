@@ -11,7 +11,7 @@ const getPropPath = (path, key) => (path === '' ? `${key}` : `${path}.${key}`);
 
 const types = {
   nested: ({ key, children }, path, plain) => plain(children, getPropPath(path, key)),
-  changed: ({ key, value1, value2 }, path) => `Property '${getPropPath(path, key)}' was updated. From ${stringify(value1)} to ${stringify(value2)}`,
+  changed: ({ key, oldValue, newValue }, path) => `Property '${getPropPath(path, key)}' was updated. From ${stringify(oldValue)} to ${stringify(newValue)}`,
   deleted: ({ key }, path) => `Property '${getPropPath(path, key)}' was removed`,
   added: ({ key, value }, path) => `Property '${getPropPath(path, key)}' was added with value: ${stringify(value)}`,
   unchanged: () => [],
